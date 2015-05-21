@@ -146,6 +146,7 @@ void fixup_sys_perms(const char *upath)
             return;
 
         sprintf(buf,"/sys%s/%s", upath, dp->attr);
+        usleep(10000);
         INFO("fixup %s %d %d 0%o\n", buf, dp->uid, dp->gid, dp->perm);
         chown(buf, dp->uid, dp->gid);
         chmod(buf, dp->perm);
